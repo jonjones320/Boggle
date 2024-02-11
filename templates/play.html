@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Boggle Play!{% endblock %}
+
+{% block content %} 
+
+    <div id="timer">60</div>
+
+    <div>
+        <h3>Score:</h3>
+        <p id="scoreP">0</p>
+    </div>
+
+    {% for row in board %}
+
+        <table id="boardTable" class="boardTable">
+            <tr id="boardRow">
+                {% for letter in row %}
+                    <td id="BoardEntry">{{letter}}</td>
+                {% endfor %}
+            </tr>
+        </table>
+    
+    {% endfor %}
+
+
+    <form id="guessForm" method="POST">
+        <input id="guessInput" type="text" placeholder="Guess a word...">
+        <button id="submitBttn">Submit</button>
+    </form>
+
+    <p id="msgDisplay">
+
+    </p>
+
+    <ul id="words">
+
+    </ul>
+
+    <script src="/static/app.js"></script>
+
+{% endblock %}
